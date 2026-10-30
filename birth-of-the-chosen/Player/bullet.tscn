@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dhmyi71nxediq"]
+
+[ext_resource type="Script" uid="uid://b4qro1ys0jmyy" path="res://Player/bullet.gd" id="1_kxw81"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_405oi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fnnny"]
+radius = 4.0
+
+[node name="Bullet" type="Area2D" unique_id=1878310513]
+script = ExtResource("1_kxw81")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1578282516]
+position = Vector2(2.3841858e-07, 1.1920929e-06)
+scale = Vector2(8.009072, 8.000002)
+mesh = SubResource("SphereMesh_405oi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=711738365]
+shape = SubResource("CircleShape2D_fnnny")

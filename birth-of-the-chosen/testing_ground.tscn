@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bpxs1ot2yokmf"]
+
+[ext_resource type="PackedScene" uid="uid://bbefa4oaj8bnp" path="res://Player/player.tscn" id="1_q4otm"]
+[ext_resource type="PackedScene" uid="uid://c5mocdhx6eq3v" path="res://Level Items/jump_dash_sphere.tscn" id="2_1aoan"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnnny"]
+size = Vector2(563, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fnnny"]
+
+[node name="Testing Ground" type="Node2D" unique_id=1364674710]
+
+[node name="Player" parent="." unique_id=1750547038 groups=["Player"] instance=ExtResource("1_q4otm")]
+position = Vector2(-1, -15)
+
+[node name="Physical" type="Node2D" parent="." unique_id=1138129655]
+visible = false
+
+[node name="Jump_Dash_Sphere" parent="Physical" unique_id=1096330161 instance=ExtResource("2_1aoan")]
+position = Vector2(82, -105)
+
+[node name="Floor" type="StaticBody2D" parent="Physical" unique_id=1706121139]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Physical/Floor" unique_id=1323337392]
+position = Vector2(0.5, 11)
+shape = SubResource("RectangleShape2D_fnnny")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Physical/Floor" unique_id=1435738734]
+position = Vector2(0.50001144, 11)
+scale = Vector2(563, 20)
+mesh = SubResource("BoxMesh_fnnny")
+
+[node name="Void" type="Node2D" parent="." unique_id=1025636757]
+visible = false
+
+[node name="Floor" type="StaticBody2D" parent="Void" unique_id=270834410]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void/Floor" unique_id=1137385325]
+position = Vector2(1, 61)
+shape = SubResource("RectangleShape2D_fnnny")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Void/Floor" unique_id=1169650180]
+position = Vector2(1.1920929e-07, 61)
+scale = Vector2(563, 20)
+mesh = SubResource("BoxMesh_fnnny")

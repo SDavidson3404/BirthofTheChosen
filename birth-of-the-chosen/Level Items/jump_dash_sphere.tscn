@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c5mocdhx6eq3v"]
+
+[ext_resource type="Script" uid="uid://bcd2nbjxsp37q" path="res://Level Items/jump_dash_sphere.gd" id="1_ce0y8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fnnny"]
+radius = 63.07139
+
+[sub_resource type="SphereMesh" id="SphereMesh_r8tgl"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fnnny"]
+
+[node name="Jump_Dash_Sphere" type="Node2D" unique_id=1096330161]
+script = ExtResource("1_ce0y8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1876692467]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1637469086]
+shape = SubResource("CircleShape2D_fnnny")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Area2D" unique_id=1627188552]
+position = Vector2(0, 3.33786e-06)
+scale = Vector2(20, 20.000002)
+mesh = SubResource("SphereMesh_r8tgl")
+
+[node name="Dash_Indicator" type="MeshInstance2D" parent="." unique_id=526487066]
+visible = false
+modulate = Color(1, 0, 0.5058824, 1)
+position = Vector2(2.9802322e-08, 2.1457672e-06)
+scale = Vector2(2, 20.000004)
+mesh = SubResource("CapsuleMesh_fnnny")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
